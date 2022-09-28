@@ -11,7 +11,7 @@ namespace UserMaintenance.Entities
         public Guid ID { get; set; } = Guid.NewGuid();
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FulltName
+        public string FullName
         {
             get
             {
