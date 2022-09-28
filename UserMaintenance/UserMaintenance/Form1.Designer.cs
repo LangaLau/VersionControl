@@ -30,8 +30,8 @@ namespace UserMaintenance
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLast = new System.Windows.Forms.TextBox();
+            this.txtFirst = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,19 +46,19 @@ namespace UserMaintenance
             this.listBox1.Size = new System.Drawing.Size(161, 340);
             this.listBox1.TabIndex = 0;
             // 
-            // textBox1
+            // txtLast
             // 
-            this.textBox1.Location = new System.Drawing.Point(324, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtLast.Location = new System.Drawing.Point(324, 55);
+            this.txtLast.Name = "txtLast";
+            this.txtLast.Size = new System.Drawing.Size(174, 22);
+            this.txtLast.TabIndex = 1;
             // 
-            // textBox2
+            // txtFirst
             // 
-            this.textBox2.Location = new System.Drawing.Point(324, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtFirst.Location = new System.Drawing.Point(324, 93);
+            this.txtFirst.Name = "txtFirst";
+            this.txtFirst.Size = new System.Drawing.Size(174, 22);
+            this.txtFirst.TabIndex = 2;
             // 
             // lblLastName
             // 
@@ -86,6 +86,7 @@ namespace UserMaintenance
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "button1";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Form1
             // 
@@ -95,8 +96,8 @@ namespace UserMaintenance
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFirst);
+            this.Controls.Add(this.txtLast);
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -108,8 +109,8 @@ namespace UserMaintenance
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLast;
+        private System.Windows.Forms.TextBox txtFirst;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Button btnAdd;

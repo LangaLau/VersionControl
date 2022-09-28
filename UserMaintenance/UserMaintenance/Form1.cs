@@ -25,5 +25,15 @@ namespace UserMaintenance
             listBox1.ValueMember = "ID";
             listBox1.DisplayMember = "FullName";
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var n = new User()
+            {
+                LastName = txtLast.Text,
+                FirstName = txtFirst.Text
+            };
+            users.Add(n);
+        }
     }
 }
