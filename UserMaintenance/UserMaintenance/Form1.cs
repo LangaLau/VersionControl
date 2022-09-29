@@ -17,8 +17,11 @@ namespace UserMaintenance
         public Form1()
         {
             InitializeComponent();
+
             lblFullName.Text = Resource.FullName;
-                       btnAdd.Text = Resource.Add;
+            btnAdd.Text = Resource.Add;
+            btnToFile.Text = Resource.WriteToFile;
+            lblList.Text = Resource.List;
 
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
@@ -29,7 +32,7 @@ namespace UserMaintenance
         {
             var n = new User()
             {
-                FullName= txtFullName.Text
+                FullName = txtFullName.Text
             };
             users.Add(n);
         }
