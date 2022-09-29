@@ -81,6 +81,7 @@ namespace UserMaintenance
             this.btnToFile.TabIndex = 6;
             this.btnToFile.Text = "button1";
             this.btnToFile.UseVisualStyleBackColor = true;
+            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
             // 
             // lblList
             // 
