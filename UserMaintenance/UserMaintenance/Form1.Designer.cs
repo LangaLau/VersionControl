@@ -30,11 +30,11 @@ namespace UserMaintenance
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.txtLast = new System.Windows.Forms.TextBox();
-            this.txtFirst = new System.Windows.Forms.TextBox();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.lblFullName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnToFile = new System.Windows.Forms.Button();
+            this.lblList = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -46,58 +46,62 @@ namespace UserMaintenance
             this.listBox1.Size = new System.Drawing.Size(161, 340);
             this.listBox1.TabIndex = 0;
             // 
-            // txtLast
+            // txtFullName
             // 
-            this.txtLast.Location = new System.Drawing.Point(324, 55);
-            this.txtLast.Name = "txtLast";
-            this.txtLast.Size = new System.Drawing.Size(174, 22);
-            this.txtLast.TabIndex = 1;
+            this.txtFullName.Location = new System.Drawing.Point(282, 55);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(174, 22);
+            this.txtFullName.TabIndex = 1;
             // 
-            // txtFirst
+            // lblFullName
             // 
-            this.txtFirst.Location = new System.Drawing.Point(324, 93);
-            this.txtFirst.Name = "txtFirst";
-            this.txtFirst.Size = new System.Drawing.Size(174, 22);
-            this.txtFirst.TabIndex = 2;
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(207, 55);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(46, 17);
-            this.lblLastName.TabIndex = 3;
-            this.lblLastName.Text = "label1";
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(207, 93);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(46, 17);
-            this.lblFirstName.TabIndex = 4;
-            this.lblFirstName.Text = "label2";
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Location = new System.Drawing.Point(207, 55);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(46, 17);
+            this.lblFullName.TabIndex = 3;
+            this.lblFullName.Text = "label1";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(279, 143);
+            this.btnAdd.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnAdd.Location = new System.Drawing.Point(210, 118);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(219, 42);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "button1";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnToFile
+            // 
+            this.btnToFile.Location = new System.Drawing.Point(210, 358);
+            this.btnToFile.Name = "btnToFile";
+            this.btnToFile.Size = new System.Drawing.Size(140, 37);
+            this.btnToFile.TabIndex = 6;
+            this.btnToFile.Text = "button1";
+            this.btnToFile.UseVisualStyleBackColor = true;
+            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
+            // 
+            // lblList
+            // 
+            this.lblList.AutoSize = true;
+            this.lblList.Location = new System.Drawing.Point(28, 32);
+            this.lblList.Name = "lblList";
+            this.lblList.Size = new System.Drawing.Size(46, 17);
+            this.lblList.TabIndex = 7;
+            this.lblList.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 450);
+            this.Controls.Add(this.lblList);
+            this.Controls.Add(this.btnToFile);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblFirstName);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.txtFirst);
-            this.Controls.Add(this.txtLast);
+            this.Controls.Add(this.lblFullName);
+            this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -109,11 +113,11 @@ namespace UserMaintenance
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox txtLast;
-        private System.Windows.Forms.TextBox txtFirst;
-        private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnToFile;
+        private System.Windows.Forms.Label lblList;
     }
 }
 
