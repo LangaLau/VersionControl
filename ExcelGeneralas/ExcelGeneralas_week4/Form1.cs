@@ -41,6 +41,8 @@ namespace ExcelGeneralas_week4
                 // Új munkalap
                 xlSheet = xlWB.ActiveSheet;
 
+                CreatTable();
+
                 // Control átadása a felhasználónak
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
@@ -62,5 +64,26 @@ namespace ExcelGeneralas_week4
         {
             flats = context.Flats.ToList();
         }
+
+        private void CreatTable()
+        {
+            string[] headers = new string[]     //Flat fejlécei
+            {
+                 "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)"
+            };
+            for (int i = 0; i < headers.Count(); i++)
+            {
+                xlSheet.Cells[1, 1] = headers[0];
+            }
+        }
     }
 }
+
