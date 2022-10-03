@@ -79,6 +79,8 @@ namespace ExcelGeneralas_week4
                 "Ár (mFt)",
                 "Négyzetméter ár (Ft/m2)"
             };
+            object[,] storeValues = new object[flats.Count(),headers.Length];
+
             for (int i = 0; i < headers.Count(); i++)
             {
                 xlSheet.Cells[1, 1] = headers[0];
