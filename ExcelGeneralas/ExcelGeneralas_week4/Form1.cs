@@ -79,12 +79,24 @@ namespace ExcelGeneralas_week4
                 "Ár (mFt)",
                 "Négyzetméter ár (Ft/m2)"
             };
-            object[,] storeValues = new object[flats.Count(),headers.Length];
+            object[,] storeValues = new object[flats.Count(), headers.Length];   //object 2 dimenziós változó
 
-            for (int i = 0; i < headers.Count(); i++)
+            int counter = 0;
+            foreach (Flat f in flats)
             {
-                xlSheet.Cells[1, 1] = headers[0];
+                storeValues[counter, 0] = f.Code;
+                storeValues[counter, 1] = f.Vendor;
+                storeValues[counter, 2] = f.Side;
+                storeValues[counter, 3] = f.District;
+                storeValues[counter, 4] = f.Elevator ?
+                    "Van" : "Nincs";
+                storeValues[counter, 5] = f.NumberOfRooms;
+                storeValues[counter, 6] = f.FloorArea;
+                storeValues[counter, 7] = f.Price;
+                storeValues[counter, 7] = "";
+                counter++;
             }
+
         }
     }
 }
