@@ -20,6 +20,8 @@ namespace ExcelGeneralas_week4
         Excel.Application xlApp;             // A Microsoft Excel alkalmazás
         Excel.Workbook xlWB;                 // A létrehozott munkafüzet
         Excel.Worksheet xlSheet;             // Munkalap a munkafüzeten belül
+
+        private int millionValtozo = (int)Math.Pow(10, 6);
         public Form1()
         {
             InitializeComponent();
@@ -98,6 +100,8 @@ namespace ExcelGeneralas_week4
             object[,] storeValues = new object[flats.Count(), headers.Length];   //object 2 dimenziós változó
 
             int counter = 0;
+            int floorArea = 6;
+
             foreach (Flat f in flats)
             {
                 storeValues[counter, 0] = f.Code;
@@ -109,7 +113,10 @@ namespace ExcelGeneralas_week4
                 storeValues[counter, 5] = f.NumberOfRooms;
                 storeValues[counter, 6] = f.FloorArea;
                 storeValues[counter, 7] = f.Price;
-                storeValues[counter, 7] = "";
+                storeValues[counter, 8] = string.Format("={0}/{1}*{2}",
+                    "H" + (counter + 2).ToString(),
+                    GetCell(counter + 2, floorArea + 1),
+                    millionValtozo.ToString());
                 counter++;
             }
 
