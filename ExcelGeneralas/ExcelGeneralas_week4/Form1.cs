@@ -27,6 +27,22 @@ namespace ExcelGeneralas_week4
             LoadData();
             CreatExcel();
         }
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
+        }
 
         private void CreatExcel()
         {
@@ -97,22 +113,6 @@ namespace ExcelGeneralas_week4
                 counter++;
             }
 
-            string GetCell(int x, int y)
-            {
-                string ExcelCoordinate = "";
-                int dividend = y;
-                int modulo;
-
-                while (dividend > 0)
-                {
-                    modulo = (dividend - 1) % 26;
-                    ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
-                    dividend = (int)((dividend - modulo) / 26);
-                }
-                ExcelCoordinate += x.ToString();
-
-                return ExcelCoordinate;
-            }
 
             var range = xlSheet.get_Range(
                 GetCell(2, 1),
@@ -120,6 +120,7 @@ namespace ExcelGeneralas_week4
 
             range.Value2 = storeValues;
         }
+
     }
 }
 
