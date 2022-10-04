@@ -113,6 +113,12 @@ namespace ExcelGeneralas_week4
 
                 return ExcelCoordinate;
             }
+
+            var range = xlSheet.get_Range(
+                GetCell(2, 1),
+                GetCell(1 + storeValues.GetLength(0), storeValues.GetLength(1)));
+
+            range.Value2 = storeValues;
         }
     }
 }
