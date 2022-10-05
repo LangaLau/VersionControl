@@ -155,7 +155,7 @@ namespace ExcelGeneralas_week4
             Excel.Range lastColRange = xlSheet.get_Range(GetCell(másodiksor, headers.Length), GetCell(lastRowID, headers.Length));             //Az utolsó oszlop adatainak háttere legyen halványzöld.          
             lastColRange.Interior.Color = Color.LightGreen;
             lastColRange.ColumnWidth = 15;
-            //lastColRange.NumberFormat = true;
+            lastColRange.NumberFormat = "$#,##0.00_);[Red]($#,##0.00)";
 
             //Az utolsó oszlop adatai két tizedesre kerekített formában jelenjenek meg?
 
