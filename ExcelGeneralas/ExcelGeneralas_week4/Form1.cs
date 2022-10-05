@@ -14,6 +14,8 @@ namespace ExcelGeneralas_week4
 {
     public partial class Form1 : Form
     {
+        private int millionValtozo = (int)Math.Pow(10, 6);
+
         RealEstateEntities context = new RealEstateEntities();      //példányosítás!
         List<Flat> flats;                                           //mi az hogy nem kell inicializálni? 
 
@@ -21,13 +23,94 @@ namespace ExcelGeneralas_week4
         Excel.Workbook xlWB;                 // A létrehozott munkafüzet
         Excel.Worksheet xlSheet;             // Munkalap a munkafüzeten belül
 
-        private int millionValtozo = (int)Math.Pow(10, 6);
+        string[] headers;
+
         public Form1()
         {
             InitializeComponent();
 
             LoadData();
+            dataGridView1.DataSource = flats;
             CreatExcel();
+        }
+
+        public void LoadData()     //adatok átmásolása memóriába adattárból
+        {
+            flats = context.Flats.ToList();
+        }
+        public void CreatExcel()
+        {
+            try
+            {
+                xlApp = new Excel.Application();                // Excel elindítása, applikáció objektum betöltése                               
+                xlWB = xlApp.Workbooks.Add(Missing.Value);      // Új munkafüzet        //Missing:Value?
+                xlSheet = xlWB.ActiveSheet;                     //uj sheet
+
+                CreatTable();
+                FormatTable();
+
+                xlApp.Visible = true;                              // Control átadása a felhasználónak
+                xlApp.UserControl = true;
+            }
+            catch (Exception ex)                                 // Hibakezelés a beépített hibaüzenettel
+            {
+                string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                MessageBox.Show(errMsg, "Error");
+
+                // Hiba esetén az Excel applikáció bezárása automatikusan
+                xlWB.Close(false, Type.Missing, Type.Missing);
+                xlApp.Quit();
+                xlWB = null;
+                xlApp = null;
+            }
+        }
+        private void CreatTable()
+        {
+            headers = new string[]     //Flat fejlécei
+            {
+                 "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)"
+            };
+
+            for (int i = 0; i < headers.Length; i++)
+                xlSheet.Cells[1, i + 1] = headers[i];
+
+            object[,] storeValues = new object[flats.Count, headers.Length];   //object 2 dimenziós változó
+
+            int counter = 0;
+            int floorArea = 6;
+
+            foreach (Flat f in flats)
+            {
+                storeValues[counter, 0] = f.Code;
+                storeValues[counter, 1] = f.Vendor;
+                storeValues[counter, 2] = f.Side;
+                storeValues[counter, 3] = f.District;
+                storeValues[counter, 4] = f.Elevator ?
+                    "Van" :
+                    "Nincs";
+                storeValues[counter, 5] = f.NumberOfRooms;
+                storeValues[counter, 6] = f.FloorArea;
+                storeValues[counter, 7] = f.Price;
+                storeValues[counter, 8] = string.Format("={0}/{1}*{2}",
+                    "H" + (counter + 2).ToString(),
+                    GetCell(counter + 2, floorArea + 1),
+                    millionValtozo.ToString());
+                counter++;
+            }
+
+            var range = xlSheet.get_Range(
+                GetCell(2, 1),
+                GetCell(1 + storeValues.GetLength(0), storeValues.GetLength(1)));
+
+            range.Value2 = storeValues;
         }
         private string GetCell(int x, int y)
         {
@@ -46,86 +129,18 @@ namespace ExcelGeneralas_week4
             return ExcelCoordinate;
         }
 
-        private void CreatExcel()
+        private void FormatTable()
         {
-            try
-            {
-                // Excel elindítása, applikáció objektum betöltése
-                xlApp = new Excel.Application();
-
-                // Új munkafüzet
-                xlWB = xlApp.Workbooks.Add(Missing.Value);      //Missing:Value?
-
-                // Új munkalap
-                xlSheet = xlWB.ActiveSheet;
-
-                CreatTable();
-
-                // Control átadása a felhasználónak
-                xlApp.Visible = true;
-                xlApp.UserControl = true;
-            }
-            catch (Exception ex) // Hibakezelés a beépített hibaüzenettel
-            {
-                string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
-                MessageBox.Show(errMsg, "Error");
-
-                // Hiba esetén az Excel applikáció bezárása automatikusan
-                xlWB.Close(false, Type.Missing, Type.Missing);
-                xlApp.Quit();
-                xlWB = null;
-                xlApp = null;
-            }
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
         }
 
-        private void LoadData()     //adatok átmásolása memóriába adattárból
-        {
-            flats = context.Flats.ToList();
-        }
-
-        private void CreatTable()
-        {
-            string[] headers = new string[]     //Flat fejlécei
-            {
-                 "Kód",
-                "Eladó",
-                "Oldal",
-                "Kerület",
-                "Lift",
-                "Szobák száma",
-                "Alapterület (m2)",
-                "Ár (mFt)",
-                "Négyzetméter ár (Ft/m2)"
-            };
-            object[,] storeValues = new object[flats.Count(), headers.Length];   //object 2 dimenziós változó
-
-            int counter = 0;
-            int floorArea = 6;
-
-            foreach (Flat f in flats)
-            {
-                storeValues[counter, 0] = f.Code;
-                storeValues[counter, 1] = f.Vendor;
-                storeValues[counter, 2] = f.Side;
-                storeValues[counter, 3] = f.District;
-                storeValues[counter, 4] = f.Elevator ?
-                    "Van" : "Nincs";
-                storeValues[counter, 5] = f.NumberOfRooms;
-                storeValues[counter, 6] = f.FloorArea;
-                storeValues[counter, 7] = f.Price;
-                storeValues[counter, 8] = string.Format("={0}/{1}*{2}",
-                    "H" + (counter + 2).ToString(),
-                    GetCell(counter + 2, floorArea + 1),
-                    millionValtozo.ToString());
-                counter++;
-            }
-
-            var range = xlSheet.get_Range(
-                GetCell(2, 1),
-                GetCell(1 + storeValues.GetLength(0), storeValues.GetLength(1)));
-
-            range.Value2 = storeValues;
-        }
     }
 }
 
