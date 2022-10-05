@@ -131,14 +131,34 @@ namespace ExcelGeneralas_week4
 
         private void FormatTable()
         {
-            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
-            headerRange.Font.Bold = true;
-            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-            headerRange.EntireColumn.AutoFit();
+            int lastRowID = xlSheet.UsedRange.Rows.Count;
+            int másodiksor = 2;
+            //(1;A)         (1; A-tól szélleség)
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));         //fejléc meg határozása
+            headerRange.Font.Bold = true;                                                                   //félkövér
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;                                  //függöleges igazítása
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;                                //vizszintes igazítása
+            headerRange.WrapText = true;
+            headerRange.EntireColumn.AutoFit();                                                             //szélleség
             headerRange.RowHeight = 40;
             headerRange.Interior.Color = Color.LightBlue;
-            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);        //cella magasság, hátérszín, keret
+
+            //(A;A)         (A; szélleség)
+            Excel.Range tableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, headers.Length));
+            tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlMedium);        //Az egész táblának is legyen olyan körbe szegélye, mint a fejlécnek
+                                                                                                            //(2;A)         (150; A)
+            Excel.Range firstColRange = xlSheet.get_Range(GetCell(másodiksor, 1), GetCell(lastRowID, 1));            //Az első oszlop adatai legyenek félkövérek és a háttér legyen halvány sárga
+            firstColRange.Font.Bold = true;
+            firstColRange.Interior.Color = Color.LightYellow;
+            //(2;9)      (150; szélleség)
+            Excel.Range lastColRange = xlSheet.get_Range(GetCell(másodiksor, headers.Length), GetCell(lastRowID, headers.Length));             //Az utolsó oszlop adatainak háttere legyen halványzöld.          
+            lastColRange.Interior.Color = Color.LightGreen;
+            lastColRange.ColumnWidth = 15;
+            //lastColRange.NumberFormat = true;
+
+            //Az utolsó oszlop adatai két tizedesre kerekített formában jelenjenek meg?
+
         }
 
     }
