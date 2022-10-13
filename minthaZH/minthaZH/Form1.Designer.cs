@@ -46,7 +46,7 @@ namespace minthaZH
             this.btnExcel.BackColor = System.Drawing.Color.ForestGreen;
             this.btnExcel.Location = new System.Drawing.Point(156, 28);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(84, 65);
+            this.btnExcel.Size = new System.Drawing.Size(84, 53);
             this.btnExcel.TabIndex = 1;
             this.btnExcel.Text = "Export to Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
