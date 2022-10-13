@@ -142,7 +142,7 @@ namespace minthaZH
             {
                 xlSheet.Cells[counter, 1] = item.Position;
                 xlSheet.Cells[counter, 2] = item.Country;
-                xlSheet.Cells[counter, 3] = item.Medals[0];
+                xlSheet.Cells[counter, 3] = item.Medals;
                 xlSheet.Cells[counter, 4] = item.Medals[1];
                 xlSheet.Cells[counter, 5] = item.Medals[2];
                 counter++;
