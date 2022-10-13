@@ -80,7 +80,7 @@ namespace ExcelGeneralas_week4
             };
 
             for (int i = 0; i < headers.Length; i++)
-                xlSheet.Cells[1, i + 1] = headers[i];
+                xlSheet.Cells[1, i+1] = headers[i];
 
             object[,] storeValues = new object[flats.Count, headers.Length];   //object 2 dimenziós változó
 
@@ -106,11 +106,11 @@ namespace ExcelGeneralas_week4
                 counter++;
             }
 
-            var range = xlSheet.get_Range(
-                GetCell(2, 1),
-                GetCell(1 + storeValues.GetLength(0), storeValues.GetLength(1)));
+            //var range = xlSheet.get_Range(
+            //    GetCell(2, 1),
+            //    GetCell(1 + storeValues.GetLength(0), storeValues.GetLength(1)));
 
-            range.Value2 = storeValues;
+            //range.Value2 = storeValues;
         }
         private string GetCell(int x, int y)
         {
@@ -155,12 +155,8 @@ namespace ExcelGeneralas_week4
             Excel.Range lastColRange = xlSheet.get_Range(GetCell(másodiksor, headers.Length), GetCell(lastRowID, headers.Length));             //Az utolsó oszlop adatainak háttere legyen halványzöld.          
             lastColRange.Interior.Color = Color.LightGreen;
             lastColRange.ColumnWidth = 15;
-            lastColRange.NumberFormat = "$#,##0.00_);[Red]($#,##0.00)";
-
-            //Az utolsó oszlop adatai két tizedesre kerekített formában jelenjenek meg?
-
+            lastColRange.NumberFormat = "$#,##0.00_);[Red]($#,##0.00)";            //Az utolsó oszlop adatai két tizedesre kerekített formában jelenjenek meg?
         }
-
     }
 }
 
