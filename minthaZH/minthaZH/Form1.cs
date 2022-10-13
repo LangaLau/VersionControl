@@ -55,7 +55,6 @@ namespace minthaZH
                     results.Add(olympicResults);
                 }
             }
-
         }
         private void LoadYear()
         {
