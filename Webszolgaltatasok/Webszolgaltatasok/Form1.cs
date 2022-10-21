@@ -21,6 +21,12 @@ namespace Webszolgaltatasok
         {
             InitializeComponent();
 
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            rates.Clear();
             string xmlstring = GetWebService();
             LoadXML(xmlstring);
             Charting();
@@ -32,9 +38,9 @@ namespace Webszolgaltatasok
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2022-01-01",
-                endDate = "2020-06-30"
+                currencyNames = cbBoxCurrency.SelectedItem.ToString(),
+                startDate = dtpStart.Value.ToString("yyyy-mm-dd"), //"2022-01-01",
+                endDate = dtpEnd.Value.ToString("yyyy-mm-dd")
             };
 
             var responose = mnbService.GetExchangeRates(request);
@@ -80,6 +86,11 @@ namespace Webszolgaltatasok
             chartArea.AxisX.IsStartedFromZero = false;
             var legend = chartRateDate.Legends[0];
             legend.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

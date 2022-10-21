@@ -29,9 +29,9 @@ namespace Webszolgaltatasok
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgwRates = new System.Windows.Forms.DataGridView();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
@@ -40,6 +40,7 @@ namespace Webszolgaltatasok
             this.cbBoxCurrency = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.chartRateDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateDate)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@ namespace Webszolgaltatasok
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(99, 22);
             this.dtpStart.TabIndex = 1;
+            this.dtpStart.Value = new System.DateTime(2020, 1, 1, 15, 58, 0, 0);
             // 
             // dtpEnd
             // 
@@ -69,6 +71,7 @@ namespace Webszolgaltatasok
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(115, 22);
             this.dtpEnd.TabIndex = 2;
+            this.dtpEnd.Value = new System.DateTime(2020, 12, 31, 15, 58, 0, 0);
             // 
             // label1
             // 
@@ -91,10 +94,14 @@ namespace Webszolgaltatasok
             // cbBoxCurrency
             // 
             this.cbBoxCurrency.FormattingEnabled = true;
+            this.cbBoxCurrency.Items.AddRange(new object[] {
+            "EUR",
+            "USD"});
             this.cbBoxCurrency.Location = new System.Drawing.Point(302, 26);
             this.cbBoxCurrency.Name = "cbBoxCurrency";
             this.cbBoxCurrency.Size = new System.Drawing.Size(121, 24);
             this.cbBoxCurrency.TabIndex = 5;
+            this.cbBoxCurrency.Text = "EUR";
             // 
             // label3
             // 
@@ -107,25 +114,36 @@ namespace Webszolgaltatasok
             // 
             // chartRateDate
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartRateDate.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartRateDate.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chartRateDate.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartRateDate.Legends.Add(legend5);
             this.chartRateDate.Location = new System.Drawing.Point(440, 57);
             this.chartRateDate.Name = "chartRateDate";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartRateDate.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartRateDate.Series.Add(series5);
             this.chartRateDate.Size = new System.Drawing.Size(643, 381);
             this.chartRateDate.TabIndex = 7;
             this.chartRateDate.Text = "chart1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(440, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.chartRateDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbBoxCurrency);
@@ -153,6 +171,7 @@ namespace Webszolgaltatasok
         private System.Windows.Forms.ComboBox cbBoxCurrency;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRateDate;
+        private System.Windows.Forms.Button button1;
     }
 }
 
