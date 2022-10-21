@@ -8,8 +8,9 @@ namespace Webszolgaltatasok.Entities
 {
     class RateData
     {
-        public DateTime DateTime { get; set; }
-        public  string Currencyy { get; set; }
+        public DateTime Date { get; set; }
+        public  string Currency { get; set; }
         public decimal Value { get; set; }
+     
     }
 }
