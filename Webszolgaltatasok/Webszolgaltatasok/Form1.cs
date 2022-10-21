@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using Webszolgaltatasok.Entities;
 using Webszolgaltatasok.MnbServiceReference;
@@ -67,7 +68,18 @@ namespace Webszolgaltatasok
         }
         private void Charting()
         {
-
+            chartRateDate.DataSource = rates;
+            Series series = chartRateDate.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
+            var chartArea = chartRateDate.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisX.IsStartedFromZero = false;
+            var legend = chartRateDate.Legends[0];
+            legend.Enabled = false;
         }
     }
 }
