@@ -17,15 +17,29 @@ namespace Webszolgaltatasok
     public partial class Form1 : Form
     {
         BindingList<RateData> rates = new BindingList<RateData>();
+        BindingList<string> currencies = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
+
+            cbBoxCurrency.DataSource = currencies;
+            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            GetCurrenciesRequestBody request = new GetCurrenciesRequestBody();
+            var response= mnbService.GetCurrencies(request);
+            string result = response.GetCurrenciesResult;
+            XmlDocument xmlV = new XmlDocument();
+            xmlV.LoadXml(result);
+            foreach (XmlElement item in xmlV.DocumentElement.FirstChild.ChildNodes)
+            {
+                currencies.Add(item.InnerText);
+            }
 
             RefreshData();
         }
 
         private void RefreshData()
         {
+            if (cbBoxCurrency == null) return;
             rates.Clear();
             string xmlstring = GetWebService();
             LoadXML(xmlstring);
@@ -35,7 +49,7 @@ namespace Webszolgaltatasok
 
         private string GetWebService()
         {
-            var mnbService = new MNBArfolyamServiceSoapClient();
+                      var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
             {
                 currencyNames = cbBoxCurrency.SelectedItem.ToString(),
@@ -88,9 +102,11 @@ namespace Webszolgaltatasok
             legend.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void Refresh(object sender, EventArgs e)
         {
             RefreshData();
         }
+
     }
 }
