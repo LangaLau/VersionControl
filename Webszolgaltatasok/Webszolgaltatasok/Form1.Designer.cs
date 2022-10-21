@@ -39,9 +39,9 @@ namespace Webszolgaltatasok
             this.label2 = new System.Windows.Forms.Label();
             this.cbBoxCurrency = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartRateDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRateDate)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwRates
@@ -105,28 +105,28 @@ namespace Webszolgaltatasok
             this.label3.TabIndex = 6;
             this.label3.Text = "Currency:";
             // 
-            // chart1
+            // chartRateDate
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartRateDate.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(440, 57);
-            this.chart1.Name = "chart1";
+            this.chartRateDate.Legends.Add(legend1);
+            this.chartRateDate.Location = new System.Drawing.Point(440, 57);
+            this.chartRateDate.Name = "chartRateDate";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(643, 381);
-            this.chart1.TabIndex = 7;
-            this.chart1.Text = "chart1";
+            this.chartRateDate.Series.Add(series1);
+            this.chartRateDate.Size = new System.Drawing.Size(643, 381);
+            this.chartRateDate.TabIndex = 7;
+            this.chartRateDate.Text = "chart1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 450);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartRateDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbBoxCurrency);
             this.Controls.Add(this.label2);
@@ -137,7 +137,7 @@ namespace Webszolgaltatasok
             this.Name = "Form1";
             this.Text = "  ";
             ((System.ComponentModel.ISupportInitialize)(this.dgwRates)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRateDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +152,7 @@ namespace Webszolgaltatasok
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbBoxCurrency;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartRateDate;
     }
 }
 

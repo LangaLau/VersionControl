@@ -46,22 +46,28 @@ namespace Webszolgaltatasok
             XmlDocument xml = new XmlDocument();
             xml.Load(input);
 
-            foreach (XmlElement item in xml.DocumentElement)
+            foreach (XmlElement element in xml.DocumentElement)
             {
+                var rate = new RateData();
+                rates.Add(rate);
 
-                RateData r = new RateData();
-                r.Date = DateTime.Parse(item.GetAttribute("date"));
-                XmlElement child = (XmlElement)item.FirstChild;
-                r.Currency = item.GetAttribute("curr");
-                r.Value = decimal.Parse(child.InnerText);
-                int unit = int.Parse(child.GetAttribute("unit"));
-                if (unit != 0) r.Value = r.Value / unit;
+                // Dátum
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
-                rates.Add(r);
+                // Valuta
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+
+                // Érték
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit != 0)
+                    rate.Value = value / unit;
             }
         }
         private void Charting()
         {
+
         }
     }
 }
