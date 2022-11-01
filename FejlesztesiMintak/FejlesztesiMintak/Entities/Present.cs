@@ -18,10 +18,14 @@ namespace FejlesztesiMintak.Entities
             BoxColor = new SolidBrush(box);
             RibbonColor = new SolidBrush(ribbon);
         }
+
+        int ribbonPixel = 20;
         protected override void DrawImage(Graphics graphics)
         {
             graphics.FillRectangle(BoxColor, 0, 0, Width, Height);
-            graphics.FillEllipse(RibbonColor, 0, 0, Width, Height);
+
+            graphics.FillRectangle(RibbonColor, ribbonPixel, 0, Width / 5, Height);
+            graphics.FillRectangle(RibbonColor, 0, ribbonPixel, Width, Height / 5);
         }
     }
 }
