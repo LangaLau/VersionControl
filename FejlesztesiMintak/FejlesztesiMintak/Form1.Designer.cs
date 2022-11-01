@@ -29,14 +29,17 @@ namespace FejlesztesiMintak
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_car = new System.Windows.Forms.Button();
             this.btn_ball = new System.Windows.Forms.Button();
             this.btn_present = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.lbl_comingNext = new System.Windows.Forms.Label();
             this.btn_color_present_1 = new System.Windows.Forms.Button();
             this.btn_color_ball_1 = new System.Windows.Forms.Button();
             this.btn_color_present_2 = new System.Windows.Forms.Button();
+            this.createTimer = new System.Windows.Forms.Timer(this.components);
+            this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btn_car
@@ -72,13 +75,13 @@ namespace FejlesztesiMintak
             this.btn_present.Text = "PRESENT";
             this.btn_present.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // mainPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Location = new System.Drawing.Point(1, 133);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 120);
-            this.panel1.TabIndex = 3;
+            this.mainPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.mainPanel.Location = new System.Drawing.Point(1, 117);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(787, 70);
+            this.mainPanel.TabIndex = 3;
             // 
             // lbl_comingNext
             // 
@@ -113,16 +116,28 @@ namespace FejlesztesiMintak
             this.btn_color_present_2.TabIndex = 7;
             this.btn_color_present_2.UseVisualStyleBackColor = true;
             // 
+            // createTimer
+            // 
+            this.createTimer.Enabled = true;
+            this.createTimer.Interval = 3000;
+            this.createTimer.Tick += new System.EventHandler(this.createTimer_Tick);
+            // 
+            // conveyorTimer
+            // 
+            this.conveyorTimer.Enabled = true;
+            this.conveyorTimer.Interval = 10;
+            this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 276);
+            this.ClientSize = new System.Drawing.Size(786, 203);
             this.Controls.Add(this.btn_color_present_2);
             this.Controls.Add(this.btn_color_ball_1);
             this.Controls.Add(this.btn_color_present_1);
             this.Controls.Add(this.lbl_comingNext);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.btn_present);
             this.Controls.Add(this.btn_ball);
             this.Controls.Add(this.btn_car);
@@ -138,11 +153,13 @@ namespace FejlesztesiMintak
         private System.Windows.Forms.Button btn_car;
         private System.Windows.Forms.Button btn_ball;
         private System.Windows.Forms.Button btn_present;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Label lbl_comingNext;
         private System.Windows.Forms.Button btn_color_present_1;
         private System.Windows.Forms.Button btn_color_ball_1;
         private System.Windows.Forms.Button btn_color_present_2;
+        private System.Windows.Forms.Timer createTimer;
+        private System.Windows.Forms.Timer conveyorTimer;
     }
 }
 
