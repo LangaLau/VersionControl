@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FejlesztesiMintak.Abstractions
 {
-  public  interface IToyFactory
+    public interface IToyFactory
     {
         Toy CreateNew();
     }

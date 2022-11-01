@@ -15,10 +15,8 @@ namespace FejlesztesiMintak.Abstractions
             AutoSize = false;
             Width = Height = 50;
             Paint += Toy_Paint;
-
         }
-        protected abstract void DrawImage(Graphics graphics);
-       
+        protected abstract void DrawImage(Graphics graphics);       
 
         private void Toy_Paint(object sender, PaintEventArgs e)
         {

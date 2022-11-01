@@ -10,8 +10,7 @@ using System.Windows.Forms;
 namespace FejlesztesiMintak.Entities
 {
     public class Ball : Toy
-    {
-  
+    {  
         protected override void DrawImage(Graphics graphics)
         {
             graphics.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);

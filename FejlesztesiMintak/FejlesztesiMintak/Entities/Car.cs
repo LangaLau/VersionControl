@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace FejlesztesiMintak.Entities
 {
-    class Car : Toy
+    public class Car : Toy
     {
         protected override void DrawImage(Graphics graphics)
         {
             Image imageFilePath = Image.FromFile("Images/car.png");
-            graphics.DrawImage(imageFilePath,new Rectangle(0,0,Width, Height));
+            graphics.DrawImage(imageFilePath, new Rectangle(0, 0, Width, Height));
         }
     }
 }

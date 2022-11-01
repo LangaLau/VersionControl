@@ -52,6 +52,7 @@ namespace FejlesztesiMintak
             this.btn_car.TabIndex = 0;
             this.btn_car.Text = "CAR";
             this.btn_car.UseVisualStyleBackColor = false;
+            this.btn_car.Click += new System.EventHandler(this.btn_car_Click);
             // 
             // btn_ball
             // 
@@ -63,6 +64,7 @@ namespace FejlesztesiMintak
             this.btn_ball.TabIndex = 1;
             this.btn_ball.Text = "BALL";
             this.btn_ball.UseVisualStyleBackColor = false;
+            this.btn_ball.Click += new System.EventHandler(this.btn_ball_Click);
             // 
             // btn_present
             // 
@@ -80,7 +82,7 @@ namespace FejlesztesiMintak
             this.mainPanel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.mainPanel.Location = new System.Drawing.Point(1, 117);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(787, 70);
+            this.mainPanel.Size = new System.Drawing.Size(787, 63);
             this.mainPanel.TabIndex = 3;
             // 
             // lbl_comingNext

@@ -91,7 +91,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\car.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

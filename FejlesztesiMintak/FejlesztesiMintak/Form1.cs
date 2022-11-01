@@ -15,6 +15,7 @@ namespace FejlesztesiMintak
     public partial class Form1 : Form
     {
         List<Toy> _toys = new List<Toy>();
+        private Toy _nextToy;
 
         public Form1()
         {
@@ -23,11 +24,23 @@ namespace FejlesztesiMintak
         }
 
         private IToyFactory _factory;
-
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set
+            {
+                _factory = value;
+                DisplayNext();
+            }
+        }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null) Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = lbl_comingNext.Top + lbl_comingNext.Height + 8;
+            _nextToy.Left = lbl_comingNext.Left;
+            Controls.Add(_nextToy);
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
@@ -53,6 +66,16 @@ namespace FejlesztesiMintak
                 _toys.Remove(toDelet);
                 mainPanel.Controls.Remove(toDelet);
             }
+        }
+
+        private void btn_car_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        private void btn_ball_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
         }
     }
 }
