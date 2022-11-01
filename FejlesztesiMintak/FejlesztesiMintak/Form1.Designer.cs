@@ -76,6 +76,7 @@ namespace FejlesztesiMintak
             this.btn_present.TabIndex = 2;
             this.btn_present.Text = "PRESENT";
             this.btn_present.UseVisualStyleBackColor = false;
+            this.btn_present.Click += new System.EventHandler(this.btn_present_Click);
             // 
             // mainPanel
             // 
@@ -102,6 +103,7 @@ namespace FejlesztesiMintak
             this.btn_color_present_1.Size = new System.Drawing.Size(40, 23);
             this.btn_color_present_1.TabIndex = 5;
             this.btn_color_present_1.UseVisualStyleBackColor = false;
+            this.btn_color_present_1.Click += new System.EventHandler(this.btn_color);
             // 
             // btn_color_ball_1
             // 
@@ -121,6 +123,7 @@ namespace FejlesztesiMintak
             this.btn_color_present_2.Size = new System.Drawing.Size(40, 23);
             this.btn_color_present_2.TabIndex = 7;
             this.btn_color_present_2.UseVisualStyleBackColor = false;
+            this.btn_color_present_2.Click += new System.EventHandler(this.btn_color);
             // 
             // createTimer
             // 

@@ -79,8 +79,16 @@ namespace FejlesztesiMintak
             {
                 BallColor = btn_color_ball_1.BackColor
             };
-        }
+        }  
 
+        private void btn_present_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                BoxColor = btn_color_present_1.BackColor,
+                RibbonColor=btn_color_present_2.BackColor
+            };
+        }
         private void btn_color(object sender, EventArgs e)
         {
             var button = (Button)sender;
