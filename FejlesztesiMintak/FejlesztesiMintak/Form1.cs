@@ -75,7 +75,10 @@ namespace FejlesztesiMintak
 
         private void btn_ball_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = btn_color_ball_1.BackColor
+            };
         }
 
         private void btn_color(object sender, EventArgs e)
@@ -88,3 +91,4 @@ namespace FejlesztesiMintak
         }
     }
 }
+

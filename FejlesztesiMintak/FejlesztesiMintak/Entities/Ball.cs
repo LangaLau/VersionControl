@@ -10,11 +10,17 @@ using System.Windows.Forms;
 namespace FejlesztesiMintak.Entities
 {
     public class Ball : Toy
-    {  
+    {
+        public SolidBrush BallColor { get; private set; }
+
+        public Ball(Color color)
+        {
+            BallColor = new SolidBrush(color);
+        }
         protected override void DrawImage(Graphics graphics)
         {
-            graphics.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }   
+            graphics.FillEllipse(BallColor, 0, 0, Width, Height);
+        }
     }
 }
 
