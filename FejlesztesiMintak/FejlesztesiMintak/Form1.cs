@@ -41,7 +41,7 @@ namespace FejlesztesiMintak
             var mostRightBall = 0;
             foreach (var b in _balls)
             {
-                b.MoveBall();
+                b.MoveToy();
                 if (b.Left > mostRightBall)
                     mostRightBall = b.Left;
             }

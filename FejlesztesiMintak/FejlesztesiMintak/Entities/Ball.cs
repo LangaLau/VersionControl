@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FejlesztesiMintak.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,28 +9,13 @@ using System.Windows.Forms;
 
 namespace FejlesztesiMintak.Entities
 {
-    public class Ball : Label
+    public class Ball : Toy
     {
-        public Ball()
-        {
-            AutoSize = false;
-            Width = Height = 50;
-            Paint += Ball_Paint;
-
-        }
-        protected void DrawImage(Graphics graphics)
+  
+        protected override void DrawImage(Graphics graphics)
         {
             graphics.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
-
-        private void Ball_Paint(object sender, PaintEventArgs e)
-        {
-            DrawImage(e.Graphics);
-        }
-        public void MoveBall()
-        {
-            Left++;
-        }
+        }   
     }
 }
 
