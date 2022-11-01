@@ -1,4 +1,5 @@
-﻿using FejlesztesiMintak.Entities;
+﻿using FejlesztesiMintak.Abstractions;
+using FejlesztesiMintak.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace FejlesztesiMintak
 {
     public partial class Form1 : Form
     {
-        List<Ball> _balls = new List<Ball>();
+        List<Toy> _toys = new List<Toy>();
 
         public Form1()
         {
@@ -21,9 +22,9 @@ namespace FejlesztesiMintak
             Factory = new BallFactory();
         }
 
-        private BallFactory _factory;
+        private IToyFactory _factory;
 
-        public BallFactory Factory
+        public IToyFactory Factory
         {
             get { return _factory; }
             set { _factory = value; }
@@ -31,25 +32,25 @@ namespace FejlesztesiMintak
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var ball = Factory.CreateNew();
-            _balls.Add(ball);
-            mainPanel.Controls.Add(ball);
-            ball.Left = -ball.Left;
+            var toy = Factory.CreateNew();
+            _toys.Add(toy);
+            mainPanel.Controls.Add(toy);
+            toy.Left = -toy.Left;
         }
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
-            var mostRightBall = 0;
-            foreach (var b in _balls)
+            var mostRightItem = 0;
+            foreach (var b in _toys)
             {
                 b.MoveToy();
-                if (b.Left > mostRightBall)
-                    mostRightBall = b.Left;
+                if (b.Left > mostRightItem)
+                    mostRightItem = b.Left;
             }
 
-            if (mostRightBall >= 1000)
+            if (mostRightItem >= 1000)
             {
-                var toDelet = _balls[0];
-                _balls.Remove(toDelet);
+                var toDelet = _toys[0];
+                _toys.Remove(toDelet);
                 mainPanel.Controls.Remove(toDelet);
             }
         }
