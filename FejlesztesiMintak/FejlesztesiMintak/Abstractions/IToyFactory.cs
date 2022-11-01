@@ -8,6 +8,6 @@ namespace FejlesztesiMintak.Abstractions
 {
   public  interface IToyFactory
     {
-        Toy CreatNew();
+        Toy CreateNew();
     }
 }
