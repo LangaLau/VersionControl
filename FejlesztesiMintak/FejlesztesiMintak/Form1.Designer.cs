@@ -96,27 +96,31 @@ namespace FejlesztesiMintak
             // 
             // btn_color_present_1
             // 
+            this.btn_color_present_1.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.btn_color_present_1.Location = new System.Drawing.Point(248, 61);
             this.btn_color_present_1.Name = "btn_color_present_1";
             this.btn_color_present_1.Size = new System.Drawing.Size(40, 23);
             this.btn_color_present_1.TabIndex = 5;
-            this.btn_color_present_1.UseVisualStyleBackColor = true;
+            this.btn_color_present_1.UseVisualStyleBackColor = false;
             // 
             // btn_color_ball_1
             // 
+            this.btn_color_ball_1.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_color_ball_1.Location = new System.Drawing.Point(133, 61);
             this.btn_color_ball_1.Name = "btn_color_ball_1";
             this.btn_color_ball_1.Size = new System.Drawing.Size(40, 23);
             this.btn_color_ball_1.TabIndex = 6;
-            this.btn_color_ball_1.UseVisualStyleBackColor = true;
+            this.btn_color_ball_1.UseVisualStyleBackColor = false;
+            this.btn_color_ball_1.Click += new System.EventHandler(this.btn_color);
             // 
             // btn_color_present_2
             // 
+            this.btn_color_present_2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_color_present_2.Location = new System.Drawing.Point(296, 61);
             this.btn_color_present_2.Name = "btn_color_present_2";
             this.btn_color_present_2.Size = new System.Drawing.Size(40, 23);
             this.btn_color_present_2.TabIndex = 7;
-            this.btn_color_present_2.UseVisualStyleBackColor = true;
+            this.btn_color_present_2.UseVisualStyleBackColor = false;
             // 
             // createTimer
             // 

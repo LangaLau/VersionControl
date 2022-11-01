@@ -77,5 +77,14 @@ namespace FejlesztesiMintak
         {
             Factory = new BallFactory();
         }
+
+        private void btn_color(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var chosenColor = new ColorDialog();
+            chosenColor.Color = button.BackColor;
+            if (chosenColor.ShowDialog() != DialogResult.OK) return;
+            button.BackColor = chosenColor.Color;
+        }
     }
 }
