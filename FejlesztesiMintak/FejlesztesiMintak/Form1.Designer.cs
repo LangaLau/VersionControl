@@ -80,10 +80,10 @@ namespace FejlesztesiMintak
             // 
             // mainPanel
             // 
-            this.mainPanel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.mainPanel.Location = new System.Drawing.Point(1, 117);
+            this.mainPanel.BackColor = System.Drawing.Color.White;
+            this.mainPanel.Location = new System.Drawing.Point(1, 150);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(787, 63);
+            this.mainPanel.Size = new System.Drawing.Size(787, 80);
             this.mainPanel.TabIndex = 3;
             // 
             // lbl_comingNext
@@ -141,7 +141,7 @@ namespace FejlesztesiMintak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 203);
+            this.ClientSize = new System.Drawing.Size(786, 256);
             this.Controls.Add(this.btn_color_present_2);
             this.Controls.Add(this.btn_color_ball_1);
             this.Controls.Add(this.btn_color_present_1);

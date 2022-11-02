@@ -13,7 +13,7 @@ namespace FejlesztesiMintak.Abstractions
         public Toy()
         {
             AutoSize = false;
-            Width = Height = 50;
+            Width = Height = 70;
             Paint += Toy_Paint;
         }
         protected abstract void DrawImage(Graphics graphics);       

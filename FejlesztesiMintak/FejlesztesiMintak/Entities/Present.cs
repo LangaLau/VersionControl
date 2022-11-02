@@ -19,7 +19,7 @@ namespace FejlesztesiMintak.Entities
             RibbonColor = new SolidBrush(ribbon);
         }
 
-        int ribbonPixel = 20;
+        int ribbonPixel = 70/5*2;
         protected override void DrawImage(Graphics graphics)
         {
             graphics.FillRectangle(BoxColor, 0, 0, Width, Height);
