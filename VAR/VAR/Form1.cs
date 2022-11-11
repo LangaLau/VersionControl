@@ -17,7 +17,7 @@ namespace VAR
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
-        List<decimal> nyereségekRendezve;
+        List<decimal> nyereségekRendezve = new List<decimal>();
 
         public Form1()
         {
@@ -42,7 +42,7 @@ namespace VAR
                 Console.WriteLine(i + " " + ny);
             }
 
-            var nyereségekRendezve = (from x in Nyereségek
+            nyereségekRendezve = (from x in Nyereségek
                                       orderby x
                                       select x).ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
@@ -82,6 +82,7 @@ namespace VAR
                 {
                     sw.WriteLine(string.Format(
                       "{0},{1}",
+                      //i,
                       Math.Round((double)i / (double)nyereségekRendezve.Count(), 2),
                       nyereségekRendezve[i]));
                 }
