@@ -57,13 +57,19 @@ namespace UnitTestExample.Test
         public void TestRegisterHappyPath(string email, string password)
         {
             //Arrange
+            var accountServiceMock = new Mock<IAccountManager>(MockBehavior.Strict);
+            accountServiceMock
+                .Setup(m => m.CreateAccount(It.IsAny<Account>()))
+                .Returns<Account>(a => a);
             var accountController = new AccountController();
+            accountController.AccountManager = accountServiceMock.Object;
             //Act
             var result = accountController.Register(email, password);
             //Assert
             Assert.AreEqual(email, result.Email);
             Assert.AreEqual(password, result.Password);
             Assert.AreNotEqual(Guid.Empty, result.ID);
+            accountServiceMock.Verify(m => m.CreateAccount(actualResult), Times.Once);
         }
 
         [
