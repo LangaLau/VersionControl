@@ -1,11 +1,14 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System;
 using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTestExample.Abstractions;
 using UnitTestExample.Controllers;
+using UnitTestExample.Entities;
 
 namespace UnitTestExample.Test
 {
@@ -69,7 +72,7 @@ namespace UnitTestExample.Test
             Assert.AreEqual(email, result.Email);
             Assert.AreEqual(password, result.Password);
             Assert.AreNotEqual(Guid.Empty, result.ID);
-            accountServiceMock.Verify(m => m.CreateAccount(actualResult), Times.Once);
+            accountServiceMock.Verify(m => m.CreateAccount(result), Times.Once);
         }
 
         [
