@@ -60,19 +60,19 @@ namespace UnitTestExample.Test
         public void TestRegisterHappyPath(string email, string password)
         {
             //Arrange
-            var accountManagerMock = new Mock<IAccountManager>(MockBehavior.Strict);
-            accountManagerMock
+            var accountServiceMock = new Mock<IAccountManager>(MockBehavior.Strict);
+            accountServiceMock
                 .Setup(m => m.CreateAccount(It.IsAny<Account>()))
                 .Returns<Account>(a => a);
             var accountController = new AccountController();
-            accountController.AccountManager = accountManagerMock.Object;
+            accountController.AccountManager = accountServiceMock.Object;
             //Act
             var result = accountController.Register(email, password);
             //Assert
             Assert.AreEqual(email, result.Email);
             Assert.AreEqual(password, result.Password);
             Assert.AreNotEqual(Guid.Empty, result.ID);
-            accountManagerMock.Verify(m => m.CreateAccount(result), Times.Once);
+            accountServiceMock.Verify(m => m.CreateAccount(result), Times.Once);
         }
 
         [
@@ -99,6 +99,33 @@ namespace UnitTestExample.Test
             {
                 Assert.IsInstanceOf<ValidationException>(ex);
             }
+        }
+        [
+    Test,
+    TestCase("irf@uni-corvinus.hu", "Abcd1234")
+]
+        public void TestRegisterApplicationException(string newEmail, string newPassword)
+        {
+            // Arrange
+            var accountServiceMock = new Mock<IAccountManager>(MockBehavior.Strict);
+            accountServiceMock
+                .Setup(m => m.CreateAccount(It.IsAny<Account>()))
+                .Throws<ApplicationException>();
+            var accountController = new AccountController();
+            accountController.AccountManager = accountServiceMock.Object;
+
+            // Act
+            try
+            {
+                var actualResult = accountController.Register(newEmail, newPassword);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOf<ApplicationException>(ex);
+            }
+
+            // Assert
         }
     }
 }
