@@ -14,14 +14,54 @@ namespace Mikroszimulacio
 {
     public partial class Form1 : Form
     {
-        List<Person> Population = new List<Person>();
-        List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
-        List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        List<Person> Population = null;
+        List<BirthProbability> BirthProbabilities = null;
+        List<DeathProbability> DeathProbabilities = null;
         public Form1()
         {
             InitializeComponent();
-            GetPopulation(@"C:\Temp\nép-teszt.csv");
+            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
+            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
         }
+
+        public List<BirthProbability> GetBirthProbabilities(string csvPath)
+        {
+            List<BirthProbability> birthProbabilities = new List<BirthProbability>();
+            using (var sr = new StreamReader(csvPath, Encoding.Default))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine().Split(';');
+                    birthProbabilities.Add(new BirthProbability()
+                    {
+                        Age = byte.Parse(line[0]),
+                        NbrOfChildren = int.Parse(line[1]),
+                        P = double.Parse(line[2])
+                    });
+                }
+            }
+            return birthProbabilities;
+        }
+        public List<DeathProbability> GetDeathProbabilities(string csvPath)
+        {
+            List<DeathProbability> deathProbabilities = new List<DeathProbability>();
+            using (var sr = new StreamReader(csvPath, Encoding.Default))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine().Split(';');
+                    deathProbabilities.Add(new DeathProbability()
+                    {
+                        Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
+                        Age = byte.Parse(line[1]),
+                        P = double.Parse(line[2])       //vesző pontra kicserélése, de én gépemen nem kellett .Replace(",",".")
+                    });
+                }
+            }
+            return deathProbabilities;
+        }
+
 
         public List<Person> GetPopulation(string csvPath)
         {
