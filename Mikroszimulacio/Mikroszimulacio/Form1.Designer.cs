@@ -42,7 +42,7 @@ namespace Mikroszimulacio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 37);
+            this.label1.Location = new System.Drawing.Point(19, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace Mikroszimulacio
             // lbl_pop
             // 
             this.lbl_pop.AutoSize = true;
-            this.lbl_pop.Location = new System.Drawing.Point(193, 40);
+            this.lbl_pop.Location = new System.Drawing.Point(19, 12);
             this.lbl_pop.Name = "lbl_pop";
             this.lbl_pop.Size = new System.Drawing.Size(98, 17);
             this.lbl_pop.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace Mikroszimulacio
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(642, 32);
+            this.btnBrowse.Location = new System.Drawing.Point(242, 40);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(70, 30);
             this.btnBrowse.TabIndex = 3;
@@ -69,7 +69,7 @@ namespace Mikroszimulacio
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(718, 32);
+            this.btnStart.Location = new System.Drawing.Point(318, 40);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(70, 30);
             this.btnStart.TabIndex = 4;
@@ -79,9 +79,9 @@ namespace Mikroszimulacio
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(297, 37);
+            this.txtPath.Location = new System.Drawing.Point(123, 9);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(339, 22);
+            this.txtPath.Size = new System.Drawing.Size(265, 22);
             this.txtPath.TabIndex = 5;
             this.txtPath.Text = "C:\\Temp\\nép-teszt.csv";
             // 
@@ -89,13 +89,13 @@ namespace Mikroszimulacio
             // 
             this.txtMain.Location = new System.Drawing.Point(12, 82);
             this.txtMain.Name = "txtMain";
-            this.txtMain.Size = new System.Drawing.Size(776, 356);
+            this.txtMain.Size = new System.Drawing.Size(376, 356);
             this.txtMain.TabIndex = 6;
             this.txtMain.Text = "";
             // 
             // numbYear
             // 
-            this.numbYear.Location = new System.Drawing.Point(100, 37);
+            this.numbYear.Location = new System.Drawing.Point(82, 45);
             this.numbYear.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -114,7 +114,7 @@ namespace Mikroszimulacio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(417, 450);
             this.Controls.Add(this.numbYear);
             this.Controls.Add(this.txtMain);
             this.Controls.Add(this.txtPath);
