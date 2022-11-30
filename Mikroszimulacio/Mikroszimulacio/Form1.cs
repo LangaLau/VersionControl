@@ -14,6 +14,8 @@ namespace Mikroszimulacio
 {
     public partial class Form1 : Form
     {
+        Random rng = new Random(1234);
+
         List<Person> Population = null;
         List<BirthProbability> BirthProbabilities = null;
         List<DeathProbability> DeathProbabilities = null;
