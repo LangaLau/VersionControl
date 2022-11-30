@@ -96,9 +96,19 @@ namespace Mikroszimulacio
             // numbYear
             // 
             this.numbYear.Location = new System.Drawing.Point(100, 37);
+            this.numbYear.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numbYear.Name = "numbYear";
             this.numbYear.Size = new System.Drawing.Size(69, 22);
             this.numbYear.TabIndex = 7;
+            this.numbYear.Value = new decimal(new int[] {
+            2025,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
