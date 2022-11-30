@@ -29,11 +29,11 @@ namespace Mikroszimulacio
             //Szimuláció
             for (int year = 2005; year <= 2024; year++)
             {
-           
+
                 for (int i = 0; i < Population.Count; i++)
                 {
                     //Szimulációs lépés
-                
+
                 }
 
                 int nbrOfMales = (from x in Population
@@ -44,7 +44,7 @@ namespace Mikroszimulacio
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
                 Console.WriteLine(
-                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+                    string.Format("Év: {0}\nFiúk: {1}, Lányok: {2}", year, nbrOfMales, nbrOfFemales));
             }
         }
 
